@@ -1,0 +1,3 @@
+print("    ")
+print("nic")
+print("    ")
