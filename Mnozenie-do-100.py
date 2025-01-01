@@ -8,3 +8,4 @@ sleep(2)
 for i in range(1, 31):
     print(f"{number} * {i} = {number * i}")
     sleep(0.5)
+    print("kupsko")
