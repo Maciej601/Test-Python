@@ -4,19 +4,22 @@ import random
 
 pygame.init()
 
-# Colors
+# Kolory
 white = (255, 255, 255)
 yellow = (255, 255, 102)
 black = (0, 0, 0)
-red = (213, 50, 80)
+red2 = (255, 0, 0)
+red = (255, 0, 0)
 green = (0, 255, 0)
-blue = (50, 153, 213)
+blue = (0, 0, 0)
 
-# Display settings
+# Wymiary okna gry
 dis_width = 800
 dis_height = 600
+
+# Inicjalizacja okna gry
 dis = pygame.display.set_mode((dis_width, dis_height))
-pygame.display.set_caption('Snake Game')
+pygame.display.set_caption('Gra w Węża')
 
 clock = pygame.time.Clock()
 snake_block = 10
@@ -27,7 +30,7 @@ score_font = pygame.font.SysFont(None, 35)
 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(dis, green, [x[0], x[1], snake_block, snake_block])
 
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
@@ -52,7 +55,7 @@ def gameLoop():
     while not game_over:
 
         while game_close == True:
-            dis.fill(blue)
+            dis.fill(red2)
             message("You Lost! Press Q-Quit or C-Play Again", red)
             pygame.display.update()
 
@@ -86,7 +89,7 @@ def gameLoop():
         x1 += x1_change
         y1 += y1_change
         dis.fill(blue)
-        pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
+        pygame.draw.rect(dis, red, [foodx, foody, snake_block, snake_block])
         snake_Head = []
         snake_Head.append(x1)
         snake_Head.append(y1)
@@ -99,6 +102,7 @@ def gameLoop():
                 game_close = True
 
         our_snake(snake_block, snake_List)
+
         pygame.display.update()
 
         if x1 == foodx and y1 == foody:
